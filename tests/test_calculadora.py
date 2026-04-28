@@ -1,6 +1,6 @@
 import pytest
 
-from src.calculadora import dividir, fatorial, multiplicar, potencia, somar, subtrair
+from src.calculadora import dividir, fatorial, media, multiplicar, potencia, somar, subtrair
 
 
 def test_somar():
@@ -27,6 +27,27 @@ def test_dividir():
 def test_dividir_por_zero():
     with pytest.raises(ValueError):
         dividir(1, 0)
+
+
+def test_media_lista_de_inteiros():
+    assert media([2, 4, 6, 8]) == 5
+
+
+def test_media_lista_com_um_elemento():
+    assert media([7]) == 7
+
+
+def test_media_lista_com_decimais():
+    assert media([1.5, 2.5, 3.5]) == 2.5
+
+
+def test_media_lista_com_numeros_negativos():
+    assert media([-2, 2, 4]) == pytest.approx(1.3333333333333333)
+
+
+def test_media_lista_vazia():
+    with pytest.raises(ValueError):
+        media([])
 
 
 def test_potencia():

@@ -16,6 +16,12 @@ def dividir(a, b):
     return a / b
 
 
+def media(numeros):
+    if not numeros:
+        raise ValueError("Não é possível calcular a média de uma lista vazia")
+    return sum(numeros) / len(numeros)
+
+
 def potencia(base, expoente):
     return base ** expoente
 
